@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/data_entered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+
+            android:layout_marginEnd="18sp"
+            android:textColor="@color/white"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:cursorVisible="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="18sp"
+            android:alpha="0.6"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_entered" />
+
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_marginTop="180sp"
+            android:background="@color/black"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/result">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginBottom="20sp"
+                android:background="@color/soot"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                tools:ignore="SmallSp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_AC"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onACClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="AC"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_DEL"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDelClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="⌫"
+                    android:textColor="@color/white"
+                    android:textSize="33sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_plus_minus"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onPlusMinusClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="+/-"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_divide"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onOperatorClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_7"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="7"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_8"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="8"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_9"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="9"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_mul"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onOperatorClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="*"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_4"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="4"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_5"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="5"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_6"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="6"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_sub"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onOperatorClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="-"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_1"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_2"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_3"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_plus"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onOperatorClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/percent"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onOperatorClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="%"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_0"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDigitClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="27sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_dec"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onOperatorClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="."
+                    android:textColor="@color/white"
+                    android:textSize="35sp"
+                    app:backgroundTint="@color/colorButtonMedium"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/card_equal"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_marginHorizontal="8sp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onEqualsClick"
+                    android:paddingHorizontal="8sp"
+                    android:text="="
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="20sp"
+                    app:elevation="5sp"
+                    app:strokeWidth="0sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
