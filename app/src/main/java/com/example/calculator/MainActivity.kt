@@ -1,6 +1,6 @@
 package com.example.calculator
 
-import  android.annotation.SuppressLint
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,10 +27,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-//        binding.percent.setOnClickListener{
-//            onPercentClick(it)
-//        }
     }
 
     fun onACClick(view: View){
@@ -58,9 +54,6 @@ class MainActivity : AppCompatActivity() {
 
     fun onOperatorClick(view: View){
         if(!stateError && lastNumeric){
-//            if(binding.dataEntered.text.toString().contains("X")){
-//                binding.dataEntered.text.toString().replace("X","*")
-//            }
             binding.dataEntered.append((view as Button).text)
             lastDot = false
             lastNumeric = false
